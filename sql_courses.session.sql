@@ -45,15 +45,17 @@ WHERE
 )
 order by company_id;
 
-with company_count as (
-    select 
-        job_postings_fact.company_id,
-        count(*) as total_job
-    from
+WITH company_count AS (
+    SELECT 
+        company_id,
+        COUNT(*) AS total_job
+    FROM
         job_postings_fact
     GROUP BY    
         company_id
 )
+SELECT * FROM company_count;
+
 
 select  
       company_dim.name as name,
@@ -80,4 +82,4 @@ WHERE
 GROUP BY
     skill_id
 )
-
+SELECT * FROM remote_job;
