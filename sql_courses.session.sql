@@ -61,7 +61,7 @@ select
       company_dim.name as name,
       company_count.total_job
 from
-    company_dim
+    company_dim,company_count
 left join company_count 
     on
           company_count.company_id = company_dim.company_id
